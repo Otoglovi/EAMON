@@ -140,3 +140,6 @@ function delete_user($user_id)
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+
+//Close database connection
+mysqli_close($connection);
