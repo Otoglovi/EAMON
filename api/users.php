@@ -6,7 +6,7 @@
  */
 
 //Database connection
-require_once '../eamon/connection.php';
+require_once 'connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
