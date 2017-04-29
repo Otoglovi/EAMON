@@ -53,11 +53,12 @@ function get_users($users)
         $query .= " WHERE id=" . $users . " LIMIT 1";
     }
     $response = array();
-    echo $query." THIS IS THE QRY";
+
     $result = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_array($result)) {
         $response[] = $row;
     }
+    echo $response." after SQL";
 //    header('Content-Type: application/json');
 //    echo json_encode($response);
 //    echo $users;
