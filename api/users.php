@@ -76,7 +76,6 @@ function get_users($users)
         }
         header('Content-Type: application/json');
         echo json_encode($response);
-        // blabla  echo   'WHERE username="' . $user . '" LIMIT 1';
     } else {
         header("HTTP/1.0 204 No Content Found");
     }
