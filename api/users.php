@@ -48,7 +48,7 @@ function get_users($users)
     global $link;
     $query = "SELECT `id`, `username`,`email`, `phone`, `type`, `fullName` FROM users";
     if (strlen($users) > 0) {
-        $query .= " WHERE id=" . $users . " LIMIT 1";
+        $query .= ' WHERE username="' . $users . '" LIMIT 1';
     }
     $response = array();
     $result = mysqli_query($link, $query);
