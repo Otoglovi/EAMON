@@ -12,8 +12,8 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
-        if (!empty($_GET["users"])) {
-            $users = intval($_GET["users"]);
+        if (!empty($_GET["user"])) {
+            $users = intval($_GET["user"]);
             get_users($users);
         } else {
             get_users();
@@ -25,12 +25,12 @@ switch ($request_method) {
         break;
     case 'PUT':
         //Update User
-        $users = intval($_GET["users"]);
+        $users = intval($_GET["user"]);
         update_user($users);
         break;
     case 'DELETE':
         //Delete User
-        $users = intval($_GET["users"]);
+        $users = intval($_GET["user"]);
         delete_user($users);
         break;
     default:
