@@ -6,7 +6,7 @@
  */
 
 //Database connection
-$connection = mysqli_connect('', '', '', 'rest_api');
+require_once '../eamon/connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
