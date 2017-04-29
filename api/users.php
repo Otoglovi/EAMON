@@ -14,10 +14,11 @@ switch ($request_method) {
         //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
        if (!empty($_GET["user"])) {
-            $users = intval($_GET["user"]);
-            echo $users." NOW HERE";
+            $users = ($_GET["user"]);
+
             get_users($users);
         } else {
+           echo $users." NO PARAMETER";
             get_users();
         }
         break;
