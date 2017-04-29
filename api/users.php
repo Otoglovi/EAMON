@@ -6,15 +6,15 @@
  */
 
 //Database connection
-require_once 'connection.php';
+require_once 'C:\Users\user\Documents\PhpstormProjects\EAMON\connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
-        if (!empty($_GET["user_id"])) {
-            $user_id = intval($_GET["user_id"]);
-            get_users($user_id);
+        if (!empty($_GET["user"])) {
+            $user = intval($_GET["user"]);
+            get_users($user);
         } else {
             get_users();
         }
@@ -25,13 +25,13 @@ switch ($request_method) {
         break;
     case 'PUT':
         //Update User
-        $user_id = intval($_GET["user_id"]);
-        update_user($user_id);
+        $user = intval($_GET["user"]);
+        update_user($user);
         break;
     case 'DELETE':
         //Delete User
-        $user_id = intval($_GET["user_id"]);
-        delete_user($user_id);
+        $user = intval($_GET["user"]);
+        delete_user($user);
         break;
     default:
         //Invalid Request Method
@@ -39,12 +39,12 @@ switch ($request_method) {
         break;
 }
 
-function get_users($user_id = 0)
+function get_users($user = 0)
 {
     global $connection;
     $query = "SELECT * FROM users";
-    if ($user_id != 0) {
-        $query .= " WHERE id=" . $user_id . " LIMIT 1";
+    if ($user != 0) {
+        $query .= " WHERE id=" . $user . " LIMIT 1";
     }
     $response = array();
     $result = mysqli_query($connection, $query);
