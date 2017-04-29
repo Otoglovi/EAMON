@@ -15,10 +15,8 @@ switch ($request_method) {
         //Retrieve Users
        if (!empty($_GET["user"])) {
             $users = ($_GET["user"]);
-
             get_users($users);
         } else {
-           echo $users." NO PARAMETER";
             get_users();
         }
         break;
@@ -47,6 +45,7 @@ switch ($request_method) {
 
 function get_users($users = 0)
 {
+    echo $users."WE ARE   INSIDE ";
     global $connection;
     $query = "SELECT * FROM users";
     if ($users != 0) {
