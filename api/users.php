@@ -46,7 +46,7 @@ switch ($request_method) {
 function get_users($users)
 {
     //echo $users."WE ARE   INSIDE ";
-    global $connection;
+    global $link;
     $query = "SELECT * FROM users";
     if (strlen($users) > 0) {
         /** @var TYPE_NAME $users */
@@ -54,7 +54,7 @@ function get_users($users)
     }
     $response = array();
 
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_array($result)) {
         $response[] = $row;
     }
