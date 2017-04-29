@@ -43,7 +43,7 @@ switch ($request_method) {
         break;
 }
 
-function get_users($users = 0)
+function get_users($users)
 {
     echo $users."WE ARE   INSIDE ";
     global $connection;
