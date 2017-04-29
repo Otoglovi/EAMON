@@ -14,8 +14,8 @@ switch ($request_method) {
         //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
         if (!empty($_GET["user"])) {
-            $users = ($_GET["user"]);
-            get_users($users);
+            $user = ($_GET["user"]);
+            get_users($user);
         } else {
             get_users();
         }
@@ -43,12 +43,12 @@ switch ($request_method) {
         break;
 }
 
-function get_users($users)
+function get_users($user)
 {
     global $link;
     $query = "SELECT `id`, `username`,`email`, `phone`, `type`, `fullName` FROM users";
-    if (strlen($users) > 0) {
-        $query .= ' WHERE username="' . $users . '" LIMIT 1';
+    if (strlen($user) > 0) {
+        $query .= ' WHERE username="' . $user . '" LIMIT 1';
     }
     $response = array();
     $result = mysqli_query($link, $query);
