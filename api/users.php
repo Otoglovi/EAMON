@@ -12,9 +12,9 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
-        if (!empty($_GET["user"])) {
-            $user = intval($_GET["user"]);
-            get_users($user);
+        if (!empty($_GET["users"])) {
+            $users = intval($_GET["users"]);
+            get_users($users);
         } else {
             get_users();
         }
@@ -25,13 +25,13 @@ switch ($request_method) {
         break;
     case 'PUT':
         //Update User
-        $user = intval($_GET["user"]);
-        update_user($user);
+        $users = intval($_GET["users"]);
+        update_user($users);
         break;
     case 'DELETE':
         //Delete User
-        $user = intval($_GET["user"]);
-        delete_user($user);
+        $users = intval($_GET["users"]);
+        delete_user($users);
         break;
     default:
         //Invalid Request Method
@@ -39,12 +39,13 @@ switch ($request_method) {
         break;
 }
 
-function get_users($user = 0)
+function get_users($users = 0)
 {
     global $connection;
     $query = "SELECT * FROM users";
-    if ($user != 0) {
-        $query .= " WHERE id=" . $user . " LIMIT 1";
+    if ($users != 0) {
+        /** @var TYPE_NAME $users */
+        $query .= " WHERE id=" . $users . " LIMIT 1";
     }
     $response = array();
     $result = mysqli_query($connection, $query);
