@@ -6,32 +6,36 @@
  */
 
 //Database connection
-require_once 'C:\Users\user\Documents\PhpstormProjects\EAMON\connection.php';
+require_once '../connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
+        echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
-        if (!empty($_GET["user"])) {
+       if (!empty($_GET["user"])) {
             $users = intval($_GET["user"]);
             get_users($users);
         } else {
             get_users();
         }
         break;
-    case 'POST':
+//    case 'POST':
         //Insert User
-        insert_user();
-        break;
+       // insert_user();
+       // break;
+        header("HTTP/1.0 405 Method Not Allowed");
     case 'PUT':
         //Update User
-        $users = intval($_GET["user"]);
-        update_user($users);
-        break;
+        //$users = intval($_GET["user"]);
+        //update_user($users);
+        //break;
+        header("HTTP/1.0 405 Method Not Allowed");
     case 'DELETE':
         //Delete User
-        $users = intval($_GET["user"]);
-        delete_user($users);
+        //$users = intval($_GET["user"]);
+        //delete_user($users);
+        header("HTTP/1.0 405 Method Not Allowed");
         break;
     default:
         //Invalid Request Method
@@ -54,11 +58,8 @@ function get_users($users = 0)
     }
 //    header('Content-Type: application/json');
 //    echo json_encode($response);
-    echo $users;
+//    echo $users;
 }
 
 
 
-
-//Close database connection
-mysqli_close($connection);
