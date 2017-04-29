@@ -57,8 +57,9 @@ function get_users($users)
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_array($result)) {
         $response[] = $row;
+        echo var_dump($response[])." I N  SQL";
     }
-    echo $response." after SQL";
+    echo var_dump($response[])." after SQL";
 //    header('Content-Type: application/json');
 //    echo json_encode($response);
 //    echo $users;
