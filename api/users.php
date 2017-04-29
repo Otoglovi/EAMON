@@ -11,10 +11,11 @@ require_once '../connection.php';
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
-        echo $_GET['user']." WE ARE HERE";
+        //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
        if (!empty($_GET["user"])) {
             $users = intval($_GET["user"]);
+            echo $users." NOW HERE";
             get_users($users);
         } else {
             get_users();
