@@ -47,7 +47,7 @@ function get_users($user)
 {
     global $link;
     $query = "SELECT id, username,email, phone, type, fullName FROM users";
-    if (strlen($user) > 0) {
+    if (intval($user) > 0) {
         $query .= ' WHERE id="' . $user . '" LIMIT 1';
     }
     $response = array();
