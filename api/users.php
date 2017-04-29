@@ -13,7 +13,7 @@ switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
-       if (!empty($_GET["user"])) {
+        if (!empty($_GET["user"])) {
             $users = ($_GET["user"]);
             get_users($users);
         } else {
@@ -22,8 +22,8 @@ switch ($request_method) {
         break;
 //    case 'POST':
         //Insert User
-       // insert_user();
-       // break;
+        // insert_user();
+        // break;
         header("HTTP/1.0 405 Method Not Allowed");
     case 'PUT':
         //Update User
@@ -52,32 +52,32 @@ function get_users($users)
         /** @var TYPE_NAME $users */
         $query .= " WHERE id=" . $users . " LIMIT 1";
     }
- /*   $response = array();
+    /*   $response = array();
 
+       $result = mysqli_query($link, $query);
+       while ($row = mysqli_fetch_array($result)) {
+           $response[] = $row;
+          // echo var_dump($response[])." I N  SQL";
+       }
+       echo var_dump($response[])." after SQL";
+   //    header('Content-Type: application/json');
+   //    echo json_encode($response);
+   //    echo $users;
+   }
+
+   */
+    $response = array();
     $result = mysqli_query($link, $query);
-    while ($row = mysqli_fetch_array($result)) {
-        $response[] = $row;
-       // echo var_dump($response[])." I N  SQL";
+    $row_cnt = $result->num_rows;
+    if ($row_cnt >0) {
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $response[] = $row;
+        }
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        // blabla  echo   'WHERE username="' . $user . '" LIMIT 1';
+    } else {
+        header("HTTP/1.0 204 No Content Found");
     }
-    echo var_dump($response[])." after SQL";
-//    header('Content-Type: application/json');
-//    echo json_encode($response);
-//    echo $users;
-}
-
-*/
-$response = array();
-$result = mysqli_query($link, $query);
-$row_cnt = $result->num_rows;
-if ($row_cnt >0) {
-    while ($row = mysqli_fetch_assoc($result))
-    {
-        $response[] = $row;
-    }
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    // blabla  echo   'WHERE username="' . $user . '" LIMIT 1';
-} else {
-    header("HTTP/1.0 204 No Content Found");
-}
 }
