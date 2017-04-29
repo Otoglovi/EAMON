@@ -46,7 +46,7 @@ switch ($request_method) {
 function get_users($user)
 {
     global $link;
-    $query = "SELECT `id`, `username`,`email`, `phone`, `type`, `fullName` FROM users";
+    $query = "SELECT id, username,email, phone, type, fullName FROM users";
     if (strlen($user) > 0) {
         $query .= ' WHERE username="' . $user . '" LIMIT 1';
     }
