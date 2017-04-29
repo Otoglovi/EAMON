@@ -52,7 +52,7 @@ function get_users($users)
         /** @var TYPE_NAME $users */
         $query .= " WHERE id=" . $users . " LIMIT 1";
     }
-    $response = array();
+ /*   $response = array();
 
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_array($result)) {
@@ -65,5 +65,19 @@ function get_users($users)
 //    echo $users;
 }
 
-
-
+*/
+$response = array();
+$result = mysqli_query($link, $query);
+$row_cnt = $result->num_rows;
+if ($row_cnt >0) {
+    while ($row = mysqli_fetch_assoc($result))
+    {
+        $response[] = $row;
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    // blabla  echo   'WHERE username="' . $user . '" LIMIT 1';
+} else {
+    header("HTTP/1.0 204 No Content Found");
+}
+}
