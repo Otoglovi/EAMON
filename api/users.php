@@ -45,14 +45,15 @@ switch ($request_method) {
 
 function get_users($users)
 {
-    echo $users."WE ARE   INSIDE ";
+    //echo $users."WE ARE   INSIDE ";
     global $connection;
     $query = "SELECT * FROM users";
-    if ($users != 0) {
+    if (strlen($users) > 0) {
         /** @var TYPE_NAME $users */
         $query .= " WHERE id=" . $users . " LIMIT 1";
     }
     $response = array();
+    echo $query." THIS IS THE QRY";
     $result = mysqli_query($connection, $query);
     while ($row = mysqli_fetch_array($result)) {
         $response[] = $row;
