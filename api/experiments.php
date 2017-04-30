@@ -63,3 +63,36 @@ function get_experiments($experiment)
         header("HTTP/1.0 204 No Content Found");
     }
 }
+
+function insert_experiment()
+{
+    global $link;
+    $experiment_id=$_POST["id"];
+    $title=$_POST["title"];
+    $description=$_POST["description"];
+    $created=$_POST["created"];
+    $status=$_POST["status"];
+    $student=$_POST["student"];
+    $eao=$_POST["eao"];
+    $startdate=$_POST["startdate"];
+    $enddate=$_POST["enddate"];
+    $ethics=$_POST["ethics"];
+    $otherfiles=$_POST["otherfiles"];
+    $query="INSERT INTO experiments SET id='{$experiment_id}', title={$title}, description={$description}, created={$created}, status={$status}, student={$student}, eao={$eao}, startdate={$startdate}, enddate={$enddate}, ethics={$ethics}, otherfiles='{$otherfiles}'";
+    if(mysqli_query($link, $query))
+    {
+        $response=array(
+            'status' => 1,
+            'status_message' =>'Product Added Successfully.'
+        );
+    }
+    else
+    {
+        $response=array(
+            'status' => 0,
+            'status_message' =>'Product Addition Failed.'
+        );
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}

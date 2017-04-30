@@ -20,13 +20,13 @@ switch ($request_method) {
             get_users();
         }
         break;
-//    case 'POST':
-        //Insert User
-        // insert_user();
-        // break;
-        header("HTTP/1.0 405 Method Not Allowed");
+    case 'POST':
+        // Insert User
+        insert_user();
+        break;
+        //header("HTTP/1.0 405 Method Not Allowed");
     case 'PUT':
-        //Update User
+        // Update User
         //$users = intval($_GET["user"]);
         //update_user($users);
         //break;
@@ -63,4 +63,33 @@ function get_users($user)
     } else {
         header("HTTP/1.0 204 No Content Found");
     }
+}
+
+function insert_user()
+{
+    global $link;
+    $user_id=$_POST["id"];
+    $username=$_POST["username"];
+    $password=$_POST["password"];
+    $email=$_POST["email"];
+    $phone=$_POST["phone"];
+    $type=$_POST["type"];
+    $fullName=$_POST["fullName"];
+    $query="INSERT INTO experiments SET id='{$user_id}', username={$username}, password={$password}, email={$email}, phone={$phone}, type={$type}, fullName='{$fullName}'";
+    if(mysqli_query($link, $query))
+    {
+        $response = array(
+            'status' => 1,
+            'status_message' =>'Product Added Successfully.'
+        );
+    }
+    else
+    {
+        $response = array(
+            'status' => 0,
+            'status_message' =>'Product Addition Failed.'
+        );
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }
