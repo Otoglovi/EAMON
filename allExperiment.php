@@ -1,8 +1,8 @@
+<?php
 // Code below was developed with the help of :
 // Limitless - Responsive Web Application Kit
 // By: Eugene Kopyov
 
-<?php
 session_start();
 require_once 'functions.php';
 require_once 'connection.php';
@@ -70,16 +70,16 @@ foreach ($arrayemails as $receiver) {
 
 //Username to use for SMTP authentication - use full email address for gmail
 // $mail -> Username = "abrahamodoi2002@gmail.com";
-    $mail->Username = "rguexperiments@gmail.com";
+    $mail->Username = "darlington.2004@gmail.com";
 
 //Password to use for SMTP authentication
-    $mail->Password = "rguexperiments01";
+    $mail->Password = "BAR26clays87";
 
 //Set who the message is to be sent from
-    $mail->setFrom('rguexperiments@gmail.com', 'RGU ALERTS');
+    $mail->setFrom('darlington.2004@gmail.com', 'RGU ALERTS');
 
 //Set an alternative reply-to address
-    $mail->addReplyTo('rguexperiments@gmail.com', 'RGU ALERTS');
+    $mail->addReplyTo('darlington.2004@gmail.com', 'RGU ALERTS');
 
 //Set who the message is to be sent to
     $mail->addAddress($emailadd, $username);
@@ -328,7 +328,7 @@ include 'header.php';
                         <label class="control-label">To:</label>
                     </div>
                     <div class="col-lg-10">
-                        <select name="eao[]" multiple="multiple" data-placeholder="Enter tags" class="select-icons form-control">
+                        <select name="eao[]" multiple="multiple" data-placeholder="Click to select EAOs" class="select-icons form-control">
                             <optgroup label="Experiment Approval Officers">
                                 <?php
                                 foreach ($myarray as $as){
