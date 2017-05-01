@@ -31,11 +31,11 @@ if (isset($_POST['saveAssign'])){
 foreach ($arrayemails as $receiver) {
     $receiver = $receiver;
 
-    $username = "RGU ALERTS";
+    $username = "EAMON ALERTS";
 
     $emailadd = $receiver;
 
-    $subject = 'RGU ALERTS';
+    $subject = 'EAMON EXPERIMENT ALERTS';
 
     $mbody = 'Please be informed a new experiment has just been assigned to you';
     $altbody = 'Please be informed a new experiment has just been assigned to you';
@@ -76,10 +76,10 @@ foreach ($arrayemails as $receiver) {
     $mail->Password = "rguexperiments01";
 
 //Set who the message is to be sent from
-    $mail->setFrom('rguexperiments@gmail.com', 'RGU ALERTS');
+    $mail->setFrom('rguexperiments@gmail.com', 'EAMON ALERTS');
 
 //Set an alternative reply-to address
-    $mail->addReplyTo('rguexperiments@gmail.com', 'RGU ALERTS');
+    $mail->addReplyTo('rguexperiments@gmail.com', 'EAMON ALERTS');
 
 //Set who the message is to be sent to
     $mail->addAddress($emailadd, $username);
