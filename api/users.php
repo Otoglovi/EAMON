@@ -52,17 +52,17 @@ function get_users($user)
     }
     $response = array();
     $result = mysqli_query($link, $query);
-    //$row_cnt = $result->num_rows;
-    //if ($row_cnt >0) {
+    $row_cnt = $result->num_rows;
+    if ($row_cnt >= 1) {
         while ($row = mysqli_fetch_assoc($result))
         {
             $response[] = $row;
         }
         header('Content-Type: application/json');
         echo json_encode($response);
-   // } else {
-   //     header("HTTP/1.0 204 No Content Found");
-   // }
+    } else {
+        header("HTTP/1.0 204 No Content Found");
+    }
 }
 
 function insert_user()
