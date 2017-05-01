@@ -54,7 +54,7 @@ function get_users($user)
     $result = mysqli_query($link, $query);
     $row_cnt = $result->num_rows;
     if ($row_cnt = 0) {
-        header("HTTP/1.0 204 No Content Found");
+        echo '204 No Content Found';
     } else {
         while ($row = mysqli_fetch_assoc($result))
         {
