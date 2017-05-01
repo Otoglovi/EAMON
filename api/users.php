@@ -13,8 +13,8 @@ switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
-        if (!empty($_GET["users"])) {
-            $user = ($_GET["users"]);
+        if (!empty($_GET["username"])) {
+            $user = ($_GET["username"]);
             get_users($user);
         } else {
             get_users();
