@@ -8,7 +8,7 @@
 //Database connection
 require_once '../connection.php';
 
-/*$request_method = $_SERVER["REQUEST_METHOD"];
+$request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
@@ -42,11 +42,11 @@ switch ($request_method) {
         header("HTTP/1.0 405 Method Not Allowed");
         break;
 }
-*/
+/*
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     insert_user();
-}
+}*/
 function insert_user()
 {
     global $link;
