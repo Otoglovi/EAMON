@@ -1,7 +1,7 @@
 <?php
 // Code below was developed with the help of :
 // Limitless - Responsive Web Application Kit
-// By: Eugene Kopyov
+// By: Eugene Kopyovcvbcxvbcv
 
 session_start();
 require_once 'functions.php';
