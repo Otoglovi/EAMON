@@ -8,7 +8,18 @@
 //Database connection
 require_once '../connection.php';
 
-$request_method = $_SERVER["REQUEST_METHOD"];
+$verb = $_SERVER['REQUEST_METHOD'];
+
+if ($verb == 'GET'){
+
+
+} elseif ($verb == 'POST'){
+
+} elseif ($verb == 'DELETE'){
+
+}
+
+/*$request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
@@ -46,7 +57,7 @@ switch ($request_method) {
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     insert_user();
-}*/
+}
 function insert_user()
 {
     global $link;
@@ -73,4 +84,4 @@ function insert_user()
     }
     header('Content-Type: application/json');
     echo json_encode($response);
-}
+}*/
