@@ -8,7 +8,7 @@
 //Database connection
 require_once '../connection.php';
 
-$request_method = $_SERVER["REQUEST_METHOD"];
+/*$request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
@@ -42,29 +42,11 @@ switch ($request_method) {
         header("HTTP/1.0 405 Method Not Allowed");
         break;
 }
-
-function get_users($user)
+*/
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    global $link;
-    $query = "SELECT id, username,email, phone, type, fullName FROM users";
-    if (intval($user) > 0) {
-        $query .= ' WHERE id="' . $user . '" LIMIT 1';
-    }
-    $response = array();
-    $result = mysqli_query($link, $query);
-    $row_cnt = $result->num_rows;
-    if ($row_cnt = 0) {
-        header("HTTP/1.0 204 No Content Found");
-    } else {
-        while ($row = mysqli_fetch_assoc($result))
-        {
-            $response[] = $row;
-        }
-        header('Content-Type: application/json');
-        echo json_encode($response);
-    }
+    insert_user();
 }
-
 function insert_user()
 {
     global $link;
