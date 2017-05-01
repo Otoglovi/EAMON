@@ -13,8 +13,8 @@ switch ($request_method) {
     case 'GET':
         //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
-        if (isset($_GET["username"])) {
-            $user = ($_GET["username"]);
+        if (!empty($_GET["users"])) {
+            $user = ($_GET["users"]);
             get_users($user);
         } else {
             get_users();
@@ -53,15 +53,15 @@ function get_users($user)
     $response = array();
     $result = mysqli_query($link, $query);
     $row_cnt = $result->num_rows;
-    if ($row_cnt = 0) {
-        header("HTTP/1.0 204 No Content Found");
-    } else {
+    if ($row_cnt >0) {
         while ($row = mysqli_fetch_assoc($result))
         {
             $response[] = $row;
         }
         header('Content-Type: application/json');
         echo json_encode($response);
+    } else {
+        header("HTTP/1.0 204 No Content Found");
     }
 }
 
