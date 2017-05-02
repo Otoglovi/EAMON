@@ -11,7 +11,6 @@ require_once '../connection.php';
 $request_method = $_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
     case 'GET':
-        //echo $_GET['user']." WE ARE HERE";
         //Retrieve Users
         if (!empty($_GET["users"])) {
             $user = ($_GET["users"]);
@@ -22,20 +21,18 @@ switch ($request_method) {
         break;
     case 'POST':
         // Insert User
+        $user = intval($_GET["users"]);
         insert_user();
         break;
-    //header("HTTP/1.0 405 Method Not Allowed");
     case 'PUT':
         // Update User
         //$users = intval($_GET["user"]);
         //update_user($users);
         //break;
-        header("HTTP/1.0 405 Method Not Allowed");
     case 'DELETE':
         //Delete User
         //$users = intval($_GET["user"]);
         //delete_user($users);
-        header("HTTP/1.0 405 Method Not Allowed");
         break;
     default:
         //Invalid Request Method
@@ -52,8 +49,8 @@ function get_users($user)
     }
     $response = array();
     $result = mysqli_query($link, $query);
-    $row_cnt = $result->num_rows;
-    if ($row_cnt >0) {
+    $count_rows = $result->num_rows;
+    if ($count_rows >0) {
         while ($row = mysqli_fetch_assoc($result))
         {
             $response[] = $row;

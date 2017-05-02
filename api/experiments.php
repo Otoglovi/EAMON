@@ -51,8 +51,8 @@ function get_experiments($experiment)
     }
     $response = array();
     $result = mysqli_query($link, $query);
-    $row_cnt = $result->num_rows;
-    if ($row_cnt >0) {
+    $count_rows = $result->num_rows;
+    if ($count_rows >0) {
         while ($row = mysqli_fetch_assoc($result))
         {
             $response[] = $row;
