@@ -9,6 +9,10 @@
 require_once '../connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
+echo 'We are here' . $request_method;
+die(
+    'gone too soon');
+
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
