@@ -75,7 +75,8 @@ function insert_user()
     $phone=$_POST["phone"];
     $type=$_POST["type"];
     $fullName=$_POST["fullName"];
-    $query="INSERT INTO experiments SET username={$username}, password={$password}, email={$email}, phone={$phone}, type={$type}, fullName='{$fullName}'";
+    $query="INSERT INTO 'users'(username`, `password`, `email`, `phone`, `type`, `fullName`) values ('$username','$password','$email','$phone','$type','$fullName')";
+
     if(mysqli_query($link, $query))
     {
         $response = array(
