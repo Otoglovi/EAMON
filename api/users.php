@@ -89,7 +89,7 @@ function insert_user()
     {
         $response = array(
             'status' => 0,
-            'status_message' =>'Product Addition Failed.'
+            'status_message' =>'Product Addition Faileddasda.'
         );
     }
     header('Content-Type: application/json');
