@@ -13,6 +13,7 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 die(
     'gone too soon');
 */
+echo $request_method;
 print_r($_GET);
 exit;
 switch ($request_method) {
