@@ -1,3 +1,0 @@
-RewriteEngine On # Turn on the rewriting engine
-RewriteRule ^api/users/?$ users.php [NC,L] # Handle requests for users (all)
-RewriteRule ^api/users/([0-9]+)/?$ api/users.php?user_id=$1 [NC,L]  # Handle requests for specific user id within the range of 0-9
