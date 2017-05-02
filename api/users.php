@@ -21,7 +21,7 @@ switch ($request_method) {
         break;
     case 'POST':
         // Insert User
-        $user = intval($_GET["users"]);
+       // $user = intval($_GET["users"]);
         insert_user();
         break;
     case 'PUT':
