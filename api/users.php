@@ -13,6 +13,8 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 die(
     'gone too soon');
 */
+print_r($_POST);
+exit;
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
