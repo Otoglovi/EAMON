@@ -12,10 +12,11 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 /*echo 'We are here' . $request_method;
 die(
     'gone too soon');
-*/
+
 echo $request_method;
 print_r($_GET);
 exit;
+*/
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
