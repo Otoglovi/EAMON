@@ -18,8 +18,8 @@ die(
 $incomingUrl = explode("/", substr($tyt, 11));
 echo $request_method;
 $request_method = "POST";
-//print_r($_GET);
-//exit;
+print_r($incomingUrl);
+exit;
 
 switch ($request_method) {
     case 'GET':
