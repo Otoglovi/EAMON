@@ -84,15 +84,15 @@ function insert_users($user)
 {
 
     global $link;
-    $username=$user["username"];
-    $password=$user["password"];
-    $email=$user["email"];
-    $phone=$user["phone"];
-    $type=$user["type"];
-    $fullName=$user["fullName"];
+    $username=$user[0];
+    $password=$user[1];
+    $email=$user[2];
+    $phone=$user[3];
+    $type=$user[4];
+    $fullName=$user[5];
     $query="INSERT INTO 'users'(username, password, email, phone, type, fullName) values ('$username','$password','$email','$phone','$type','$fullName')";
         echo $query;
-        exit();
+
     mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
     {
