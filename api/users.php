@@ -112,7 +112,7 @@ function delete_user($user)
     global $link;
     foreach ($user as $value) {
 
-        $query = "delete from user where id='$value'";
+        $query = "DELETE FROM users WHERE id='$value'";
         $result = $link->query($query) or die($link->error);
         mysqli_free_result($result);
     }
@@ -131,7 +131,7 @@ function update_users($user)
 {
     global $link;
 
-    $exp = array('id','username','password','email', 'phone','type','fullName');
+    array('id','username','password','email', 'phone','type','fullName');
     $query = "update users set";
 
     $id = "";
