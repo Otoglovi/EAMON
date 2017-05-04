@@ -8,13 +8,14 @@
 //Database connection
 require_once '../connection.php';
 
-$request_method = $_SERVER["REQUEST_METHOD"];
-$incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 11));
+//$request_method = $_SERVER["REQUEST_METHOD"];
+//$incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 11));
 /*echo 'We are here' . $request_method;
 die(
     'gone too soon');
-*/
-
+*/$tyt="/api/users/Kwame/XXXX/da@gmail.com/5253582/student/Kwame";
+//$incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 11));
+$incomingUrl = explode("/", substr($tyt, 11));
 echo $request_method;
 print_r($_GET);
 exit;
