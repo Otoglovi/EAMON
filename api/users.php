@@ -80,18 +80,18 @@ function get_users($user)
     }
 }
 
-function insert_user()
+function insert_users($user)
 {
+
     global $link;
-    $username=$_POST["username"];
-    $password=$_POST["password"];
-    $email=$_POST["email"];
-    $phone=$_POST["phone"];
-    $type=$_POST["type"];
-    $fullName=$_POST["fullName"];
+    $username=$user["username"];
+    $password=$user["password"];
+    $email=$user["email"];
+    $phone=$user["phone"];
+    $type=$user["type"];
+    $fullName=$user["fullName"];
     $query="INSERT INTO 'users'(username, password, email, phone, type, fullName) values ('$username','$password','$email','$phone','$type','$fullName')";
         echo $query;
-        exit;
     mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
     {
