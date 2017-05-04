@@ -33,6 +33,8 @@ switch ($request_method) {
         break;
     case 'POST':
         // Insert User
+        echo "inside post";
+        exit();
         $cnt_param = count($incomingUrl);
 
         if($cnt_param == 6){
