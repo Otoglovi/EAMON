@@ -13,11 +13,12 @@ $incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 11));
 /*echo 'We are here' . $request_method;
 die(
     'gone too soon');
+*/
 
 echo $request_method;
 print_r($_GET);
 exit;
-*/
+
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
