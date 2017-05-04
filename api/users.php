@@ -31,8 +31,6 @@ switch ($request_method) {
         break;
     case 'POST':
         // Insert User
-        echo "inside post";
-        exit();
         $cnt_param = count($incomingUrl);
 
         if($cnt_param == 6){
@@ -91,7 +89,7 @@ function insert_users($user)
     $type=$user[4];
     $fullName=$user[5];
     $query="INSERT INTO 'users'(username, password, email, phone, type, fullName) values ('$username','$password','$email','$phone','$type','$fullName')";
-        echo $query;
+      //  echo $query;
 
     mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
