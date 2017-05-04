@@ -17,6 +17,7 @@ die(
 //$incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 11));
 $incomingUrl = explode("/", substr($tyt, 11));
 echo $request_method;
+$request_method = "POST";
 print_r($_GET);
 exit;
 
