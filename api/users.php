@@ -12,11 +12,11 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 /*echo 'We are here' . $request_method;
 die(
     'gone too soon');
-*/
+
 echo $request_method;
 print_r($_GET);
 exit;
-
+*/
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
@@ -79,7 +79,7 @@ function insert_user()
     $phone=$_POST["phone"];
     $type=$_POST["type"];
     $fullName=$_POST["fullName"];
-    $query="INSERT INTO 'users'(username, password, email, phone, type, fullName) values ('$username','$password','$email','$phone','$type','$fullName')";
+    $query="INSERT INTO 'users'(username, password, email, phone, type, fullName) values ('','','','','','')";
         echo $query;
    // mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
