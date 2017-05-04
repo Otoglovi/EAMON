@@ -12,11 +12,11 @@ $request_method = $_SERVER["REQUEST_METHOD"];
 /*echo 'We are here' . $request_method;
 die(
     'gone too soon');
-
+*/
 echo $request_method;
 print_r($_GET);
 exit;
-*/
+
 switch ($request_method) {
     case 'GET':
         //Retrieve Users
@@ -73,8 +73,8 @@ function get_users($user)
 function insert_user()
 {
     global $link;
-    $username=$_POST["username"];
-    $password=$_POST["password"];
+    $username=$_POST["usernameeeddd"];
+    $password=$_POST["passwordeee"];
     $email=$_POST["email"];
     $phone=$_POST["phone"];
     $type=$_POST["type"];
