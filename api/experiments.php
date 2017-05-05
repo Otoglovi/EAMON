@@ -68,7 +68,7 @@ function get_experiments($experiment)
     }
 }
 
-function insert_experiment()
+function insert_experiments()
 {
     global $link;
     $experiment_id=$_POST["id"];

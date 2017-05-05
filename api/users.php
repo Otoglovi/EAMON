@@ -130,12 +130,12 @@ function delete_user($user)
     }
 }
 
-function update_users($user)
+function update_user($user)
 {
     global $link;
 
     array('id','username','password','email', 'phone','type','fullName');
-    $query = "update users set";
+    $query = "UPDATE users set";
 
     $id = "";
     if(in_array('id', $user)){
