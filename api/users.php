@@ -130,50 +130,50 @@ function delete_user($user)
     }
 }
 
-function update_user($user)
+function update_user($incomingUrl)
 {
     global $link;
 
-    array('id','username','password','email', 'phone','type','fullName');
+    //array('id','username','password','email', 'phone','type','fullName');
     $query = "UPDATE users set";
 
     $id = "";
-    if(in_array('id', $user)){
-        $param_pos = array_search('id', $user);
+    if(in_array('id', $incomingUrl)){
+        $param_pos = array_search('id', $incomingUrl);
 
 
-        $query .=" id='{$user[$param_pos + 1]}' ";
-        $id = $user[$param_pos + 1];
+        $query .=" id='{$incomingUrl[$param_pos + 1]}' ";
+        $id = $incomingUrl[$param_pos + 1];
     }
-    if(in_array('username', $user)){
-        $param_pos = array_search('username', $user);
+    if(in_array('username', $incomingUrl)){
+        $param_pos = array_search('username', $incomingUrl);
 
-        $query .=" username='{$user[$param_pos + 1]}' ";
+        $query .=", username='{$incomingUrl[$param_pos + 1]}' ";
     }
-    if(in_array('password', $user)){
-        $param_pos = array_search('password', $user);
+    if(in_array('password', $incomingUrl)){
+        $param_pos = array_search('password', $incomingUrl);
 
-        $query .=" password='{$user[$param_pos + 1]}' ";
+        $query .=", password='{$incomingUrl[$param_pos + 1]}' ";
     }
-    if(in_array('email', $user)){
-        $param_pos = array_search('email', $user);
+    if(in_array('email', $incomingUrl)){
+        $param_pos = array_search('email', $incomingUrl);
 
-        $query .=" email='{$user[$param_pos + 1]}' ";
+        $query .=", email='{$incomingUrl[$param_pos + 1]}' ";
     }
-    if(in_array('phone', $user)){
-        $param_pos = array_search('phone', $user);
+    if(in_array('phone', $incomingUrl)){
+        $param_pos = array_search('phone', $incomingUrl);
 
-        $query .=" phone='{$user[$param_pos + 1]}' ";
+        $query .=", phone='{$incomingUrl[$param_pos + 1]}' ";
     }
-    if(in_array('type', $user)){
-        $param_pos = array_search('type', $user);
+    if(in_array('type', $incomingUrl)){
+        $param_pos = array_search('type', $incomingUrl);
 
-        $query .=" type='{$user[$param_pos + 1]}' ";
+        $query .=", type='{$incomingUrl[$param_pos + 1]}' ";
     }
-    if(in_array('fullName', $user)){
-        $param_pos = array_search('fullName', $user);
+    if(in_array('fullName', $incomingUrl)){
+        $param_pos = array_search('fullName', $incomingUrl);
 
-        $query .=" fullName='{$user[$param_pos + 1]}' ";
+        $query .=", fullName='{$incomingUrl[$param_pos + 1]}' ";
     }
 
     $query .= " where id='$id'";
