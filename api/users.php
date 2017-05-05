@@ -103,7 +103,7 @@ function insert_users($user)
     {
         $response = array(
             'status' => 0,
-            'status_message' =>'User Addition Failedmm.'
+            'status_message' =>'User Addition Failed.'
         );
     }
     header('Content-Type: application/json');
