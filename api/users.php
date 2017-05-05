@@ -148,25 +148,33 @@ function update_user($user)
     if(in_array('username', $user)){
         $param_pos = array_search('username', $user);
 
-        $query .=", username='{$user[$param_pos + 1]}' ";
+        $query .=" username='{$user[$param_pos + 1]}' ";
     }
     if(in_array('password', $user)){
         $param_pos = array_search('password', $user);
 
-        $query .=", password='{$user[$param_pos + 1]}' ";
+        $query .=" password='{$user[$param_pos + 1]}' ";
     }
     if(in_array('email', $user)){
         $param_pos = array_search('email', $user);
 
-        $query .=", email='{$user[$param_pos + 1]}' ";
+        $query .=" email='{$user[$param_pos + 1]}' ";
     }
     if(in_array('phone', $user)){
         $param_pos = array_search('phone', $user);
 
-        $query .=", phone='{$user[$param_pos + 1]}' ";
+        $query .=" phone='{$user[$param_pos + 1]}' ";
     }
+    if(in_array('type', $user)){
+        $param_pos = array_search('type', $user);
 
+        $query .=" type='{$user[$param_pos + 1]}' ";
+    }
+    if(in_array('fullName', $user)){
+        $param_pos = array_search('fullName', $user);
 
+        $query .=" fullName='{$user[$param_pos + 1]}' ";
+    }
 
     $query .= " where id='$id'";
     $response = array();
