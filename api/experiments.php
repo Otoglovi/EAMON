@@ -121,7 +121,7 @@ function delete_experiment($experiment)
     }
 }
 
-function update_users($user)
+function update_experiments($experiment)
 {
     global $link;
 
@@ -129,32 +129,32 @@ function update_users($user)
     $query = "update users set";
 
     $id = "";
-    if(in_array('id', $user)){
-        $param_pos = array_search('id', $user);
+    if(in_array('id', $experiment)){
+        $param_pos = array_search('id', $experiment);
 
 
-        $query .=" id='{$user[$param_pos + 1]}' ";
-        $id = $user[$param_pos + 1];
+        $query .=" id='{$experiment[$param_pos + 1]}' ";
+        $id = $experiment[$param_pos + 1];
     }
-    if(in_array('username', $user)){
-        $param_pos = array_search('username', $user);
+    if(in_array('username', $experiment)){
+        $param_pos = array_search('username', $experiment);
 
-        $query .=", username='{$user[$param_pos + 1]}' ";
+        $query .=", username='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('password', $user)){
-        $param_pos = array_search('password', $user);
+    if(in_array('password', $experiment)){
+        $param_pos = array_search('password', $experiment);
 
-        $query .=", password='{$user[$param_pos + 1]}' ";
+        $query .=", password='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('email', $user)){
-        $param_pos = array_search('email', $user);
+    if(in_array('email', $experiment)){
+        $param_pos = array_search('email', $experiment);
 
-        $query .=", email='{$user[$param_pos + 1]}' ";
+        $query .=", email='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('phone', $user)){
-        $param_pos = array_search('phone', $user);
+    if(in_array('phone', $experiment)){
+        $param_pos = array_search('phone', $experiment);
 
-        $query .=", phone='{$user[$param_pos + 1]}' ";
+        $query .=", phone='{$experiment[$param_pos + 1]}' ";
     }
 
 
