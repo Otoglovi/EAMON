@@ -170,6 +170,7 @@ function update_user($user)
 
     $query .= " where id='$id'";
     $response = array();
+    echo $query;
     $result = $link->query($query) or die($link->error);
     if ($link->affected_rows > 0) {
         header("HTTP/1.0 201 User Modified Successfully");
