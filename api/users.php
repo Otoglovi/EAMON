@@ -91,7 +91,7 @@ function insert_users($user)
     $query = "insert into users(username, password, email, phone, type, fullName)  values('$username','$password', '$email','$phone','$type','$fullName')";
         echo $query;
 
-    mysqli_query($link, $query) or die(mysqli_error($link));
+    //mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
     {
         $response = array(
