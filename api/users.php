@@ -88,8 +88,8 @@ function insert_users($user)
     $phone=$user[3];
     $type=$user[4];
     $fullName=$user[5];
-    $query = "insert into users(username, password, email, phone, type, fullName)  values('$username','$password', '$email','$phone','$type','$fullName')";
-        echo $query;
+    $query = "INSERT INTO users(username, password, email, phone, type, fullName)  VALUES ('$username','$password', '$email','$phone','$type','$fullName')";
+     //   echo $query;
 
     //mysqli_query($link, $query) or die(mysqli_error($link));
     if(mysqli_query($link, $query))
