@@ -88,7 +88,9 @@ function insert_users($user)
     $phone=$user[3];
     $type=$user[4];
     $fullName=$user[5];
-    $query = "INSERT INTO users(username, password, email, phone, type, fullName)  VALUES ('$username','$password', '$email','$phone','$type','$fullName')";
+    $query = "INSERT INTO users(username, password, email, phone, type, fullName)
+              VALUES 
+              ('$username','$password', '$email','$phone','$type','$fullName')";
      //   echo $query;
 
     //mysqli_query($link, $query) or die(mysqli_error($link));
@@ -178,7 +180,7 @@ function update_user($incomingUrl)
 
     $query .= " where id='$id'";
     $response = array();
-    echo $query;
+    //echo $query;
     $result = $link->query($query) or die($link->error);
     if ($link->affected_rows > 0) {
         header("HTTP/1.0 201 User Modified Successfully");

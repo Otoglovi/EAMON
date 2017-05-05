@@ -9,6 +9,8 @@
 require_once '../connection.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
+$incomingUrl = explode("/", substr($_SERVER['REQUEST_URI'], 17));
+
 switch ($request_method) {
     case 'GET':
         //Retrieve Experiments
@@ -23,7 +25,7 @@ switch ($request_method) {
         // Insert Experiment
         $cnt_param = count($incomingUrl);
 
-        if($cnt_param == 6){
+        if($cnt_param == 10){
 
             insert_experiments($incomingUrl);
         }else {
@@ -68,21 +70,22 @@ function get_experiments($experiment)
     }
 }
 
-function insert_experiments()
+function insert_experiments($experiment)
 {
     global $link;
-    $experiment_id=$_POST["id"];
-    $title=$_POST["title"];
-    $description=$_POST["description"];
-    $created=$_POST["created"];
-    $status=$_POST["status"];
-    $student=$_POST["student"];
-    $eao=$_POST["eao"];
-    $startdate=$_POST["startdate"];
-    $enddate=$_POST["enddate"];
-    $ethics=$_POST["ethics"];
-    $otherfiles=$_POST["otherfiles"];
-    $query="INSERT INTO experiments SET id='{$experiment_id}', title={$title}, description={$description}, created={$created}, status={$status}, student={$student}, eao={$eao}, startdate={$startdate}, enddate={$enddate}, ethics={$ethics}, otherfiles='{$otherfiles}'";
+    $title=$experiment[0];
+    $description=$experiment[1];
+    $created=$experiment[2];
+    $status=$experiment[3];
+    $student=$experiment[4];
+    $eao=$experiment[5];
+    $startdate=$experiment[6];
+    $enddate=$experiment[7];
+    $ethics=$experiment[8];
+    $otherfiles=$experiment[9];
+    $query = "INSERT INTO experiments (title, description, created, status, student, eao, startdate, enddate, ethics, otherfiles) 
+              VALUES 
+              ('$title','$description', '$created','$status','$student','$eao','$startdate','$enddate','$ethics','$otherfiles')";
     if(mysqli_query($link, $query))
     {
         $response=array(
@@ -113,8 +116,8 @@ function delete_experiment($experiment)
 
     $response = array();
     if ($link->affected_rows > 0) {
-        header("HTTP/1.0 201 User Deleted Successfully");
-        echo json_encode($response[0]="User Deleted successfully");
+        header("HTTP/1.0 201 Experiment Deleted Successfully");
+        echo json_encode($response[0]="Experiment Deleted successfully");
     } else {
         header("HTTP/1.0 204 No Content Found");
 
@@ -124,8 +127,6 @@ function delete_experiment($experiment)
 function update_experiments($experiment)
 {
     global $link;
-
-    array('id','username','password','email', 'phone','type','fullName');
     $query = "update users set";
 
     $id = "";
@@ -136,36 +137,64 @@ function update_experiments($experiment)
         $query .=" id='{$experiment[$param_pos + 1]}' ";
         $id = $experiment[$param_pos + 1];
     }
-    if(in_array('username', $experiment)){
-        $param_pos = array_search('username', $experiment);
+    if(in_array('title', $experiment)){
+        $param_pos = array_search('title', $experiment);
 
-        $query .=", username='{$experiment[$param_pos + 1]}' ";
+        $query .=", title='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('password', $experiment)){
-        $param_pos = array_search('password', $experiment);
+    if(in_array('description', $experiment)){
+        $param_pos = array_search('description', $experiment);
 
-        $query .=", password='{$experiment[$param_pos + 1]}' ";
+        $query .=", description='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('email', $experiment)){
-        $param_pos = array_search('email', $experiment);
+    if(in_array('created', $experiment)){
+        $param_pos = array_search('created', $experiment);
 
-        $query .=", email='{$experiment[$param_pos + 1]}' ";
+        $query .=", created='{$experiment[$param_pos + 1]}' ";
     }
-    if(in_array('phone', $experiment)){
-        $param_pos = array_search('phone', $experiment);
+    if(in_array('status', $experiment)){
+        $param_pos = array_search('status', $experiment);
 
-        $query .=", phone='{$experiment[$param_pos + 1]}' ";
+        $query .=", status='{$experiment[$param_pos + 1]}' ";
     }
+    if(in_array('student', $experiment)){
+        $param_pos = array_search('student', $experiment);
 
+        $query .=", student='{$experiment[$param_pos + 1]}' ";
+    }
+    if(in_array('eao', $experiment)){
+        $param_pos = array_search('eao', $experiment);
 
+        $query .=", eao='{$experiment[$param_pos + 1]}' ";
+    }
+    if(in_array('startdate', $experiment)){
+        $param_pos = array_search('startdate', $experiment);
+
+        $query .=", startdate='{$experiment[$param_pos + 1]}' ";
+    }
+    if(in_array('enddate', $experiment)){
+        $param_pos = array_search('enddate', $experiment);
+
+        $query .=", enddate='{$experiment[$param_pos + 1]}' ";
+    }
+    if(in_array('ethics', $experiment)){
+        $param_pos = array_search('ethics', $experiment);
+
+        $query .=", ethics='{$experiment[$param_pos + 1]}' ";
+    }
+    if(in_array('otherfiles', $experiment)){
+        $param_pos = array_search('otherfiles', $experiment);
+
+        $query .=", otherfiles='{$experiment[$param_pos + 1]}' ";
+    }
 
     $query .= " where id='$id'";
     $response = array();
     $result = $link->query($query) or die($link->error);
     if ($link->affected_rows > 0) {
-        header("HTTP/1.0 201 User Modified Successfully");
-        echo json_encode($response[0]="User Modified Successfully");
+        header("HTTP/1.0 201 Experiment Modified Successfully");
+        echo json_encode($response[0]="Experiment Modified Successfully");
     } else {
-        header("HTTP/1.0 40, User ID Does Not Exist");
+        header("HTTP/1.0 40, Experiment ID Does Not Exist");
     }
 }
