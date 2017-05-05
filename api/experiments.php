@@ -86,6 +86,7 @@ function insert_experiments($experiment)
     $query = "INSERT INTO experiments (title, description, created, status, student, eao, startdate, enddate, ethics, otherfiles) 
               VALUES 
               ('$title','$description', '$created','$status','$student','$eao','$startdate','$enddate','$ethics','$otherfiles')";
+    echo $query;
     if(mysqli_query($link, $query))
     {
         $response=array(
